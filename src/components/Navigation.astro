@@ -1,3 +1,7 @@
+---
+import { appURL } from "../shared/constants";
+---
+
 <div class="navbar bg-base-100 shadow-sm">
   <div class="navbar-start">
     <div class="dropdown">
@@ -25,7 +29,7 @@
           <a href="/how-it-works">How It Works</a>
         </li>
         <li class="btn btn-xs btn-accent">
-          <a href="https://www.personaldailycashflow.com">Launch App</a>
+          <a href={appURL}>Launch App</a>
         </li>
       </ul>
     </div>
@@ -55,7 +59,7 @@
   <div class="navbar-end">
     <ul class="menu menu-horizontal px-1">
       <li class="btn btn-accent">
-        <a href="https://www.personaldailycashflow.com">Launch App</a>
+        <a href={appURL}>Launch App</a>
       </li>
     </ul>
   </div>

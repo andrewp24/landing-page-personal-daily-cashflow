@@ -1,3 +1,7 @@
+---
+import { appURL } from "../shared/constants";
+---
+
 <div class="hero bg-base-200 min-h-screen">
   <div class="hero-content text-center">
     <div class="max-w-md">
@@ -7,7 +11,7 @@
         privacy seriously. None of this information leaves your browser. Ever.
       </p>
       <div class="grid grid-cols-3 gap-2">
-        <a href="https://www.personaldailycashflow.com"
+        <a href={appURL}
           ><button class="btn btn-accent rounded-2xl">Get Started</button></a
         >
         <a href="/about"

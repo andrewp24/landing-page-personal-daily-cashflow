@@ -1,26 +1,66 @@
 ---
 import "../assets/app.css";
 import Navigation from "../components/Navigation.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonicalURL?: string;
+}
+
+const {
+  title = "Personal Daily Cashflow - Track Your Daily Finances Privately",
+  description = "See how your day-to-day finances are looking at a glance. A privacy-first personal cashflow tracker — no data ever leaves your browser.",
+  canonicalURL = Astro.url.href,
+} = Astro.props;
+
+const siteName = "Personal Daily Cashflow";
+const siteURL = "https://personaldailycashflow.com";
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.svg" />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="canonical" href={canonicalURL} />
     <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- Umami Analytics -->
     <script
       defer
       src="https://cloud.umami.is/script.js"
       data-website-id="6686551e-f1e8-439e-bea4-27139dfeccf4"></script>
-    <title>Personal Daily Cashflow</title>
   </head>
   <body>
     <Navigation />
-    <slot />
+    <main>
+      <slot />
+    </main>
   </body>
 </html>
 
